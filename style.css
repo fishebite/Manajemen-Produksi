@@ -1,0 +1,213 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #e0e7ff;
+
+  background: linear-gradient(135deg, #020617, #020617);
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* =========================
+   ANIMASI RGB GRADIENT BLOBS
+========================= */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: -1;
+  border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%;
+  animation: morph 12s ease-in-out infinite;
+}
+
+/* blob 1 */
+body::before {
+  top: -150px;
+  left: -150px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+/* blob 2 */
+body::after {
+  bottom: -150px;
+  right: -150px;
+  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  animation-delay: 4s;
+}
+
+/* animasi bentuk berubah */
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    border-radius: 70% 30% 40% 60% / 60% 70% 30% 40%;
+    transform: translate(60px, -40px) scale(1.1);
+  }
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 30% 70% 60%;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* =========================
+   TITLE
+========================= */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 18px;
+
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* SCROLLBAR */
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+.container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+  border-radius: 10px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+.search-box {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+  border: none;
+
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box:focus {
+  background: rgba(99,102,241,0.2);
+}
+
+/* =========================
+   ITEM
+========================= */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px;
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+
+  transition: 0.25s;
+}
+
+.item:hover {
+  background: rgba(99,102,241,0.12);
+  transform: translateY(-2px);
+}
+
+/* LABEL */
+label {
+  min-width: 180px;
+  font-size: 14px;
+}
+
+/* INPUT GROUP */
+.item input {
+  width: 120px; /* <-- ini udh diperbesar tapi masih rapi */
+  padding: 10px;
+
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+
+  outline: none;
+  margin-left: 8px;
+
+  font-size: 13px;
+}
+
+.item input:focus {
+  background: rgba(99,102,241,0.25);
+}
+
+/* =========================
+   BUTTON
+========================= */
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+
+  font-weight: bold;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item input {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
